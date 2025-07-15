@@ -10,6 +10,9 @@ android {
 dependencies {
 
     // module
+    implementation(project(":domain"))
     api(project(":core:resource"))
     api(project(":core:utils"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:model"))
 }

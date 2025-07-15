@@ -23,10 +23,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "harudiary"
 include(":app")
+include(":domain")
 include(":core:designsystem")
 include(":core:resource")
 include(":core:navigation")
 include(":core:utils")
+include(":core:model")
 include(":feature:main")
 include(":feature:home")
 include(":feature:my")
+include(":data")
+include(":local")

@@ -1,15 +1,16 @@
 package com.imaec.harudiary
 
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
-internal fun Project.configureAndroid(
+internal fun Project.configureAndroidCommon(
     commonExtension: CommonExtension<*, *, *, *, *, *>,
 ) {
-    commonExtension.apply {
+    with(commonExtension) {
         compileSdk = 35
 
         defaultConfig {
@@ -27,10 +28,36 @@ internal fun Project.configureAndroid(
     }
 }
 
+internal fun Project.configureAndroidApp(
+    baseAppModuleExtension: BaseAppModuleExtension
+) {
+    with(baseAppModuleExtension) {
+        defaultConfig {
+            applicationId = "com.imaec.harudiary"
+            minSdk = 21
+            targetSdk = 35
+            versionCode = 1
+            versionName = "1.0"
+
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        }
+
+        buildTypes {
+            release {
+                isMinifyEnabled = false
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
+        }
+    }
+}
+
 internal fun Project.configureAndroid(
     extension: KotlinAndroidProjectExtension,
 ) {
-    extension.apply {
+    with(extension) {
         compilerOptions {
             // Treat all Kotlin warnings as errors (disabled by default)
             allWarningsAsErrors.set(

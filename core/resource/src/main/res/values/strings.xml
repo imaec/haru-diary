@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="today">오늘</string>
+    <string name="written_diaries_empty">아직 이번 달에 작성한 일기가 없어요..</string>
+    <string name="written_diaries_count">이번 달에 %1$d편의 일기를 작성 했어요!</string>
+    <string name="year_month">%1$d년 %2$s</string>
+    <string name="sunday">일</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="date_format_for_diary">%1$s. %2$s. %3$s (%4$s)</string>
+
+    <!-- empty -->
+    <string name="empty_diaries">기록한 일기가 없어요.</string>
+</resources>

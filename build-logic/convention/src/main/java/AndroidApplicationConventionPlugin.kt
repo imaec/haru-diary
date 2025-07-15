@@ -1,5 +1,7 @@
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.imaec.harudiary.configureAndroid
+import com.imaec.harudiary.configureAndroidCommon
+import com.imaec.harudiary.configureAndroidApp
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -21,8 +23,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
             extensions.configure<BaseAppModuleExtension> {
-                configureAndroid(this)
-                defaultConfig.targetSdk = 35
+                namespace = "com.imaec.harudiary"
+
+                configureAndroidCommon(this)
+                configureAndroidApp(this)
             }
 
             extensions.getByType<KotlinAndroidProjectExtension>().apply {
@@ -30,6 +34,9 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
+                add("implementation", project(":domain"))
+                add("implementation", project(":data"))
+                add("implementation", project(":local"))
                 add("implementation", project(":core:designsystem"))
                 add("implementation", project(":core:navigation"))
                 add("implementation", project(":feature:main"))
@@ -39,7 +46,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", libs.findLibrary("androidx.activity.compose").get())
                 add("implementation", libs.findLibrary("androidx.compose.bom").get())
                 add("implementation", libs.findLibrary("androidx.material3.android").get())
+                add("implementation", libs.findLibrary("androidx.room.runtime").get())
+                add("ksp", libs.findLibrary("androidx.room.compiler").get())
                 add("implementation", libs.findLibrary("hilt.navigation.compose").get())
+                add("implementation", libs.findLibrary("datastore.preferences").get())
             }
         }
     }
