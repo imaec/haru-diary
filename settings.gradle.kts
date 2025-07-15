@@ -25,3 +25,8 @@ rootProject.name = "harudiary"
 include(":app")
 include(":core:designsystem")
 include(":core:resource")
+include(":core:navigation")
+include(":core:utils")
+include(":feature:main")
+include(":feature:home")
+include(":feature:my")

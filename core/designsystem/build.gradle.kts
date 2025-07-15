@@ -11,4 +11,5 @@ dependencies {
 
     // module
     api(project(":core:resource"))
+    api(project(":core:utils"))
 }

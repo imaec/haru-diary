@@ -1,5 +1,6 @@
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
+import com.android.build.gradle.LibraryExtension
 import com.imaec.harudiary.configureAndroid
+import com.imaec.harudiary.configureCompose
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalogsExtension
@@ -8,20 +9,20 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
-class AndroidApplicationConventionPlugin : Plugin<Project> {
+class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
-            with(pluginManager) {
-                apply("com.android.application")
+            pluginManager.apply {
+                apply("com.android.library")
                 apply("org.jetbrains.kotlin.android")
                 apply("org.jlleitschuh.gradle.ktlint")
-                apply("com.google.devtools.ksp")
             }
 
             val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-            extensions.configure<BaseAppModuleExtension> {
+            extensions.configure<LibraryExtension> {
                 configureAndroid(this)
+                configureCompose(this)
                 defaultConfig.targetSdk = 35
             }
 
@@ -32,13 +33,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", project(":core:designsystem"))
                 add("implementation", project(":core:navigation"))
-                add("implementation", project(":feature:main"))
 
-                add("implementation", libs.findLibrary("material").get())
-                add("implementation", libs.findLibrary("androidx.appcompat").get())
-                add("implementation", libs.findLibrary("androidx.activity.compose").get())
-                add("implementation", libs.findLibrary("androidx.compose.bom").get())
-                add("implementation", libs.findLibrary("androidx.material3.android").get())
+                add("implementation", libs.findLibrary("androidx.core.ktx").get())
                 add("implementation", libs.findLibrary("hilt.navigation.compose").get())
             }
         }

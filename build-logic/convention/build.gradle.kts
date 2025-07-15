@@ -25,6 +25,10 @@ gradlePlugin {
             id = "com.imaec.android.application.compose"
             implementationClass = "AndroidApplicationComposeConventionPlugin"
         }
+        register("androidFeature") {
+            id = "com.imaec.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
         register("androidLibrary") {
             id = "com.imaec.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
@@ -32,6 +36,10 @@ gradlePlugin {
         register("androidLibraryCompose") {
             id = "com.imaec.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+        register("androidHilt") {
+            id = "com.imaec.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
         }
     }
 }
