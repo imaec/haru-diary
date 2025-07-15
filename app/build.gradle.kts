@@ -8,8 +8,8 @@ android {
 
     defaultConfig {
         applicationId = "com.imaec.harudiary"
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = AppConfig.VERSION_CODE
+        versionName = AppConfig.VERSION_NAME
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -31,6 +31,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", libs.findLibrary("material").get())
+                add("implementation", libs.findLibrary("androidx.core.ktx").get())
+                add("implementation", libs.findLibrary("androidx.appcompat").get())
                 add("implementation", libs.findLibrary("androidx.activity.compose").get())
                 add("implementation", libs.findLibrary("androidx.compose.bom").get())
                 add("implementation", libs.findLibrary("androidx.material3.android").get())
