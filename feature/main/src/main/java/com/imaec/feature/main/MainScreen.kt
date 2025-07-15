@@ -105,7 +105,7 @@ private fun MainFloatingButton() {
             .background(
                 brush = Brush.linearGradient(colors = listOf(primary500, primary800)),
                 shape = CircleShape
-            ),
+            )
     ) {
         Icon(
             painter = painterResource(R.drawable.ic_write),

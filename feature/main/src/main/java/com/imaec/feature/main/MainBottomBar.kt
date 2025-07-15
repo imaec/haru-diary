@@ -99,15 +99,21 @@ private fun Background(bottomBarHeight: Dp) {
             lineTo((width / 2f - fabRadius - minusPadding), 0f)
 
             cubicTo(
-                (width / 2f - fabRadius), 0f,
-                width / 2f - fabRadius, fabRadius - minusPadding,
-                width / 2f, fabRadius - minusPadding
+                (width / 2f - fabRadius),
+                0f,
+                width / 2f - fabRadius,
+                fabRadius - minusPadding,
+                width / 2f,
+                fabRadius - minusPadding
             )
 
             cubicTo(
-                width / 2f + fabRadius, fabRadius - minusPadding,
-                width / 2f + fabRadius, 0f,
-                width / 2f + fabRadius + minusPadding, 0f
+                width / 2f + fabRadius,
+                fabRadius - minusPadding,
+                width / 2f + fabRadius,
+                0f,
+                width / 2f + fabRadius + minusPadding,
+                0f
             )
 
             lineTo(width, 0f)

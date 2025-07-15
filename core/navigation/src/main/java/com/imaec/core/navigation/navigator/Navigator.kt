@@ -5,7 +5,6 @@ import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
 import androidx.navigation.navOptions
 import com.imaec.core.navigation.navigator.app.AppNavigator
-import com.imaec.core.navigation.navigator.app.AppRoute
 import com.imaec.core.navigation.navigator.main.MainNavigator
 
 val LocalAppNavigator = compositionLocalOf {
