@@ -30,21 +30,26 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.imaec.core.designsystem.component.calendar.HaruCalendar
 import com.imaec.core.designsystem.component.diary.DiaryItem
 import com.imaec.core.designsystem.component.empty.DiaryEmpty
+import com.imaec.core.designsystem.component.snackbar.showSnackbar
 import com.imaec.core.designsystem.theme.AppTheme
 import com.imaec.core.designsystem.theme.h3
 import com.imaec.core.model.diary.DiaryVo
+import com.imaec.core.navigation.navigator.LocalAppNavigator
+import com.imaec.core.navigation.utils.BackStackEntryCallback
+import com.imaec.core.navigation.utils.WRITE_DIARY_MESSAGE_KEY
 import com.imaec.core.resource.R
 import com.imaec.core.utils.extension.from
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+    val appNavigator = LocalAppNavigator.current
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    // todo
-//    BackStackEntryCallback(
-//        key = WRITE_DIARY_MESSAGE_KEY,
-//        onResult = ::showSnackbar
-//    )
+    BackStackEntryCallback(
+        navigator = appNavigator,
+        key = WRITE_DIARY_MESSAGE_KEY,
+        onResult = ::showSnackbar
+    )
 
     HomeScreen(
         diaries = uiState.diaries,

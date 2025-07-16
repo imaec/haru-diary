@@ -6,6 +6,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import com.imaec.core.navigation.navigator.Navigator
 
+const val WRITE_DIARY_MESSAGE_KEY = "writeDiaryMessage"
+const val DIARY_ID = "diaryId"
+
 @Composable
 fun <T> BackStackEntryCallback(
     navigator: Navigator<*>,

@@ -29,7 +29,9 @@ import com.imaec.core.designsystem.theme.AppTheme
 import com.imaec.core.designsystem.theme.primary500
 import com.imaec.core.designsystem.theme.primary800
 import com.imaec.core.designsystem.theme.white
+import com.imaec.core.navigation.navigator.LocalAppNavigator
 import com.imaec.core.navigation.navigator.LocalMainNavigator
+import com.imaec.core.navigation.navigator.app.AppRoute
 import com.imaec.core.navigation.navigator.main.MainRoute
 import com.imaec.core.resource.R
 import com.imaec.feature.home.HomeScreen
@@ -88,9 +90,11 @@ private fun MainScreen(
 
 @Composable
 private fun MainFloatingButton() {
+    val appNavigator = LocalAppNavigator.current
+
     FloatingActionButton(
         onClick = {
-            // todo : 작성 화면으로 이동
+            appNavigator.navigate(AppRoute.Write())
         },
         containerColor = Color.Transparent,
         shape = CircleShape,

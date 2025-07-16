@@ -33,6 +33,8 @@ import com.imaec.core.designsystem.theme.h3
 import com.imaec.core.designsystem.theme.label1
 import com.imaec.core.designsystem.theme.like
 import com.imaec.core.model.diary.DiaryVo
+import com.imaec.core.navigation.navigator.LocalAppNavigator
+import com.imaec.core.navigation.navigator.app.AppRoute
 import com.imaec.core.resource.R
 import com.imaec.core.utils.extension.singleClickable
 import com.imaec.core.utils.utils.formatDate
@@ -49,6 +51,7 @@ fun DiaryItem(
     modifier: Modifier = Modifier,
     clickable: Boolean = true
 ) {
+    val appNavigator = LocalAppNavigator.current
     val (year, month, day) = remember(diary.date) { diary.date.toYearMonthDay() }
     val dayOfWeek = (diary.date.parseDate(format = "yyyy-MM-dd") ?: Date())
         .formatDate(format = "E")
@@ -67,7 +70,7 @@ fun DiaryItem(
                 shape = RoundedCornerShape(8.dp)
             )
             .singleClickable(enabled = clickable) {
-                // todo : 작성 화면으로 이동
+                appNavigator.navigate(AppRoute.Write(diaryId = diary.id))
             }
     ) {
         Column(
