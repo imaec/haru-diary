@@ -33,6 +33,42 @@
     <string name="normal">보통</string>
     <string name="confirm">확인</string>
     <string name="cancel">취소</string>
+    <string name="together_haru_diary">하루 기록과 함께한</string>
+    <string name="together_days">%1$s일</string>
+    <string name="liked_diary">좋아하는 기록</string>
+    <string name="diary_count">%1$s개</string>
+    <string name="font_setting">폰트 설정</string>
+    <string name="example_diary">비가 내려서 집에서 조용히 책을 읽었다.
+        \n새로운 소설에 푹 빠져 시간을 잊었다.
+        \n이런 평온한 하루도 참 소중하다.</string>
+    <string name="font_default">기본</string>
+    <string name="font_kotra_hope">코트라 희망체</string>
+    <string name="font_ownglyph_ryurue">온글잎 류류체</string>
+    <string name="font_ownglyph_parkdahyun">온글잎 박다현체</string>
+    <string name="font_leeseoyun">이서윤체</string>
+    <string name="notification_setting">알림 설정</string>
+    <string name="notification">알림</string>
+    <string name="notification_time">알림 시간</string>
+    <string name="am">오전</string>
+    <string name="pm">오후</string>
+    <string name="notification_setting_time">%1$s %2$s:%3$s</string>
+    <string name="lock_setting">잠금 설정</string>
+    <string name="screen_lock">화면 잠금</string>
+    <string name="biometric_authentication">생체 인식</string>
+    <string name="change_password">비밀번호 변경</string>
+    <string name="enter_new_password">새 비밀번호를 입력해 주세요.</string>
+    <string name="enter_current_password">현재 비밀번호를 입력해 주세요</string>
+    <string name="enter_password">비밀번호를 입력해 주세요.</string>
+    <string name="reenter_password">비밀번호를 한 번 더 입력해 주세요.</string>
+    <string name="password_incorrect">비밀번호가 틀렸습니다.</string>
+    <string name="dark_mode_setting">다크 모드 설정</string>
+    <string name="system_default">시스템 설정</string>
+    <string name="light_mode">라이트 모드</string>
+    <string name="dark_mode">다크 모드</string>
+    <string name="backup_setting">백업 설정</string>
+    <string name="language_setting">언어 설정</string>
+    <string name="app_review">리뷰하기</string>
+    <string name="customer_service">의견 보내기</string>
 
     <!-- empty -->
     <string name="empty_diaries">기록한 일기가 없어요.</string>
