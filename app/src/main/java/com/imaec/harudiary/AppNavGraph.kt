@@ -13,6 +13,7 @@ import com.imaec.core.designsystem.component.snackbar.Snackbar
 import com.imaec.core.designsystem.theme.AppTheme
 import com.imaec.core.navigation.navigator.LocalAppNavigator
 import com.imaec.core.navigation.navigator.app.AppRoute
+import com.imaec.feature.diarylist.DiaryListScreen
 import com.imaec.feature.main.MainScreen
 import com.imaec.feature.write.WriteScreen
 
@@ -39,6 +40,9 @@ fun AppNavGraph() {
             }
             composable<AppRoute.Write> {
                 WriteScreen()
+            }
+            composable<AppRoute.DiaryList> {
+                DiaryListScreen()
             }
         }
         Snackbar()

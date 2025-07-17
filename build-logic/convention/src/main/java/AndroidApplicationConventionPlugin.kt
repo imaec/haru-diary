@@ -41,6 +41,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", project(":core:navigation"))
                 add("implementation", project(":feature:main"))
                 add("implementation", project(":feature:write"))
+                add("implementation", project(":feature:diarylist"))
 
                 add("implementation", libs.findLibrary("material").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())
