@@ -73,6 +73,7 @@
     <!-- empty -->
     <string name="empty_diaries">기록한 일기가 없어요.</string>
     <string name="empty_content">"내용을 입력해 주세요."</string>
+    <string name="empty_liked_diaries">좋아하는 일기가 없어요.</string>
 
     <!-- hint -->
     <string name="hint_write_diary">오늘 하루를 기록해 보세요.</string>
