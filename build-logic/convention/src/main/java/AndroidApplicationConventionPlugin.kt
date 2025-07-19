@@ -44,6 +44,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", project(":feature:diarylist"))
                 add("implementation", project(":feature:likeddiarylist"))
                 add("implementation", project(":feature:fontsetting"))
+                add("implementation", project(":feature:notificationsetting"))
 
                 add("implementation", libs.findLibrary("material").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())

@@ -7,3 +7,12 @@ plugins {
 android {
     namespace = "com.imaec.core.utils"
 }
+
+dependencies {
+
+    // module
+    implementation(project(":core:resource"))
+
+    // library
+    implementation(libs.accompanist.permissions)
+}

@@ -22,11 +22,13 @@ import com.imaec.core.designsystem.theme.ownglyph_ryurue
 import com.imaec.core.designsystem.theme.pretendard
 import com.imaec.core.navigation.navigator.LocalAppNavigator
 import com.imaec.core.navigation.navigator.app.AppRoute
+import com.imaec.core.utils.utils.NotificationPermissionRequest
 import com.imaec.domain.model.setting.FontType
 import com.imaec.feature.diarylist.DiaryListScreen
 import com.imaec.feature.fontsetting.FontSettingScreen
 import com.imaec.feature.likeddiarylist.LikedDiaryListScreen
 import com.imaec.feature.main.MainScreen
+import com.imaec.feature.notificationsetting.NotificationSettingScreen
 import com.imaec.feature.write.WriteScreen
 
 @Composable
@@ -43,6 +45,8 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
     }
 
     if (!isNavControllerInit) return
+
+    NotificationPermissionRequest()
 
     AppTheme(
         typography = typography
@@ -65,6 +69,9 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
             }
             composable<AppRoute.FontSetting> {
                 FontSettingScreen()
+            }
+            composable<AppRoute.NotificationSetting> {
+                NotificationSettingScreen()
             }
         }
         Snackbar()
