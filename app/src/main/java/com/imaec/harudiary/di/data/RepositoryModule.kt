@@ -1,7 +1,9 @@
 package com.imaec.harudiary.di.data
 
 import com.imaec.data.repository.DiaryRepositoryImpl
+import com.imaec.data.repository.SettingRepositoryImpl
 import com.imaec.domain.repository.DiaryRepository
+import com.imaec.domain.repository.SettingRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,4 +19,10 @@ internal abstract class RepositoryModule {
     abstract fun bindDiaryRepository(
         diaryRepositoryImpl: DiaryRepositoryImpl
     ): DiaryRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSettingRepository(
+        settingRepositoryImpl: SettingRepositoryImpl
+    ): SettingRepository
 }
