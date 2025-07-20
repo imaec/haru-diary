@@ -2,7 +2,9 @@ package com.imaec.harudiary
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.imaec.domain.model.setting.DarkModeType
 import com.imaec.domain.model.setting.FontType
+import com.imaec.domain.usecase.setting.GetDarkModeTypeUseCase
 import com.imaec.domain.usecase.setting.GetFontTypeUseCase
 import com.imaec.domain.usecase.setting.IsLockOnUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AppViewModel @Inject constructor(
     private val getFontTypeUseCase: GetFontTypeUseCase,
-    private val isLockOnUseCase: IsLockOnUseCase
+    private val isLockOnUseCase: IsLockOnUseCase,
+    private val getDarkModeTypeUseCase: GetDarkModeTypeUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AppUiState())
@@ -23,6 +26,7 @@ class AppViewModel @Inject constructor(
     init {
         fetchFontType()
         fetchLockOn()
+        fetchDarkModeType()
     }
 
     private fun fetchFontType() {
@@ -43,10 +47,19 @@ class AppViewModel @Inject constructor(
             }
         }
     }
+
+    private fun fetchDarkModeType() {
+        viewModelScope.launch {
+            getDarkModeTypeUseCase().collect { darkModeType ->
+                _uiState.value = uiState.value.copy(darkModeType = darkModeType)
+            }
+        }
+    }
 }
 
 data class AppUiState(
     val isLoading: Boolean = true,
     val fontType: FontType = FontType.DEFAULT,
-    val isLockOn: Boolean = false
+    val isLockOn: Boolean = false,
+    val darkModeType: DarkModeType = DarkModeType.SYSTEM
 )

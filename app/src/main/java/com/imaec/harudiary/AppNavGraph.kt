@@ -1,5 +1,6 @@
 package com.imaec.harudiary
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -28,7 +29,9 @@ import com.imaec.core.model.setting.PasswordType
 import com.imaec.core.navigation.navigator.LocalAppNavigator
 import com.imaec.core.navigation.navigator.app.AppRoute
 import com.imaec.core.utils.utils.NotificationPermissionRequest
+import com.imaec.domain.model.setting.DarkModeType
 import com.imaec.domain.model.setting.FontType
+import com.imaec.feature.darkmodesetting.DarkModeSettingScreen
 import com.imaec.feature.diarylist.DiaryListScreen
 import com.imaec.feature.fontsetting.FontSettingScreen
 import com.imaec.feature.likeddiarylist.LikedDiaryListScreen
@@ -58,6 +61,11 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
     NotificationPermissionRequest()
 
     AppTheme(
+        darkTheme = when (uiState.darkModeType) {
+            DarkModeType.SYSTEM -> isSystemInDarkTheme()
+            DarkModeType.LIGHT -> false
+            DarkModeType.DARK -> true
+        },
         typography = typography
     ) {
         NavHost(
@@ -87,6 +95,9 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
             }
             composable<AppRoute.Password> {
                 PasswordScreen()
+            }
+            composable<AppRoute.DarkModeSetting> {
+                DarkModeSettingScreen()
             }
         }
         Snackbar()
