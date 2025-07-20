@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.imaec.domain.model.setting.FontType
 import com.imaec.domain.usecase.setting.GetFontTypeUseCase
+import com.imaec.domain.usecase.setting.IsLockOnUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppViewModel @Inject constructor(
-    private val getFontTypeUseCase: GetFontTypeUseCase
+    private val getFontTypeUseCase: GetFontTypeUseCase,
+    private val isLockOnUseCase: IsLockOnUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AppUiState())
@@ -20,6 +22,7 @@ class AppViewModel @Inject constructor(
 
     init {
         fetchFontType()
+        fetchLockOn()
     }
 
     private fun fetchFontType() {
@@ -29,8 +32,21 @@ class AppViewModel @Inject constructor(
             }
         }
     }
+
+    private fun fetchLockOn() {
+        viewModelScope.launch {
+            isLockOnUseCase().collect { isLockOn ->
+                _uiState.value = uiState.value.copy(
+                    isLoading = false,
+                    isLockOn = isLockOn
+                )
+            }
+        }
+    }
 }
 
 data class AppUiState(
-    val fontType: FontType = FontType.DEFAULT
+    val isLoading: Boolean = true,
+    val fontType: FontType = FontType.DEFAULT,
+    val isLockOn: Boolean = false
 )

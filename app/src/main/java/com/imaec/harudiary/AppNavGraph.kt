@@ -2,12 +2,16 @@ package com.imaec.harudiary
 
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -20,6 +24,7 @@ import com.imaec.core.designsystem.theme.leeseoyun
 import com.imaec.core.designsystem.theme.ownglyph_parckdahyun
 import com.imaec.core.designsystem.theme.ownglyph_ryurue
 import com.imaec.core.designsystem.theme.pretendard
+import com.imaec.core.model.setting.PasswordType
 import com.imaec.core.navigation.navigator.LocalAppNavigator
 import com.imaec.core.navigation.navigator.app.AppRoute
 import com.imaec.core.utils.utils.NotificationPermissionRequest
@@ -27,8 +32,10 @@ import com.imaec.domain.model.setting.FontType
 import com.imaec.feature.diarylist.DiaryListScreen
 import com.imaec.feature.fontsetting.FontSettingScreen
 import com.imaec.feature.likeddiarylist.LikedDiaryListScreen
+import com.imaec.feature.locksetting.LockSettingScreen
 import com.imaec.feature.main.MainScreen
 import com.imaec.feature.notificationsetting.NotificationSettingScreen
+import com.imaec.feature.password.PasswordScreen
 import com.imaec.feature.write.WriteScreen
 
 @Composable
@@ -43,6 +50,8 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
         appNavigator.initNavController(navController)
         isNavControllerInit = true
     }
+
+    LockScreenNavigate(uiState = uiState)
 
     if (!isNavControllerInit) return
 
@@ -73,8 +82,39 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
             composable<AppRoute.NotificationSetting> {
                 NotificationSettingScreen()
             }
+            composable<AppRoute.LockSetting> {
+                LockSettingScreen()
+            }
+            composable<AppRoute.Password> {
+                PasswordScreen()
+            }
         }
         Snackbar()
+    }
+}
+
+@Composable
+private fun LockScreenNavigate(uiState: AppUiState) {
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val appNavigator = LocalAppNavigator.current
+
+    DisposableEffect(lifecycleOwner.lifecycle, uiState.isLoading) {
+        val lifecycleEventObserver = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME && uiState.isLockOn) {
+                appNavigator.navigate(
+                    route = AppRoute.Password(passwordType = PasswordType.LAUNCH.name),
+                    optionsBuilder = {
+                        launchSingleTop = true
+                    }
+                )
+            }
+        }
+
+        lifecycleOwner.lifecycle.addObserver(lifecycleEventObserver)
+
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(lifecycleEventObserver)
+        }
     }
 }
 

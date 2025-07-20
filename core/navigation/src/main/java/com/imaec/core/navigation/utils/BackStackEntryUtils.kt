@@ -8,6 +8,7 @@ import com.imaec.core.navigation.navigator.Navigator
 
 const val WRITE_DIARY_MESSAGE_KEY = "writeDiaryMessage"
 const val DIARY_ID = "diaryId"
+const val PASSWORD_TYPE = "passwordType"
 
 @Composable
 fun <T> BackStackEntryCallback(

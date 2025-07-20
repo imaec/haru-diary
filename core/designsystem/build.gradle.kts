@@ -15,4 +15,7 @@ dependencies {
     api(project(":core:utils"))
     implementation(project(":core:navigation"))
     implementation(project(":core:model"))
+
+    // library
+    implementation(libs.androidx.biometric)
 }

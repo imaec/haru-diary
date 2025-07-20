@@ -38,6 +38,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", project(":data"))
                 add("implementation", project(":local"))
                 add("implementation", project(":core:designsystem"))
+                add("implementation", project(":core:model"))
                 add("implementation", project(":core:navigation"))
                 add("implementation", project(":feature:main"))
                 add("implementation", project(":feature:write"))
@@ -45,6 +46,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", project(":feature:likeddiarylist"))
                 add("implementation", project(":feature:fontsetting"))
                 add("implementation", project(":feature:notificationsetting"))
+                add("implementation", project(":feature:locksetting"))
+                add("implementation", project(":feature:password"))
 
                 add("implementation", libs.findLibrary("material").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())
