@@ -1,0 +1,87 @@
+<resources>
+
+    <string name="today">Today</string>
+    <string name="written_diaries_empty">You haven\'t written any diary entries this month yet.</string>
+    <string name="written_diaries_count">You have written %1$d diaries this month!</string>
+    <string name="year_month">%2$s %1$d</string>
+    <string name="sunday">SUN</string>
+    <string name="monday">MON</string>
+    <string name="tuesday">TUE</string>
+    <string name="wednesday">WED</string>
+    <string name="thursday">THU</string>
+    <string name="friday">FRI</string>
+    <string name="saturday">SAT</string>
+    <string name="date_format_for_diary">%4$s, %2$s %3$s, %1$s</string>
+    <string name="record_tody_diary">Record today\'s diary</string>
+    <string name="date_format_for_write">%2$s %3$s, %1$s</string>
+    <string name="today_mood">Today\'s mood</string>
+    <string name="haru_diary">Haru Diary</string>
+    <string name="input_count">%1$s characters entered</string>
+    <string name="sunny">Sunny</string>
+    <string name="partly_cloudy">Partly cloudy</string>
+    <string name="cloudy">Cloudy</string>
+    <string name="rainy">Rainy</string>
+    <string name="snowy">Snowy</string>
+    <string name="happy">Happy</string>
+    <string name="bad">Bad</string>
+    <string name="angry">Angry</string>
+    <string name="excited">Excited</string>
+    <string name="sad">Sad</string>
+    <string name="relaxed">Relaxed</string>
+    <string name="tired">Tired</string>
+    <string name="normal">Normal</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="together_haru_diary">With Haru Diary</string>
+    <string name="together_days">%1$s days</string>
+    <string name="liked_diary">Liked Diary</string>
+    <string name="diary_count">%1$s items</string>
+    <string name="font_setting">Font Setting</string>
+    <string name="example_diary">It was raining, so I quietly read a book at home.
+        \nI got so absorbed in a new novel that I lost track of time.
+        \nDays as peaceful as this are truly precious.</string>
+    <string name="font_default">Default</string>
+    <string name="font_kotra_hope">Kotra Hope</string>
+    <string name="font_ownglyph_ryurue">Ownglyph Ryurue</string>
+    <string name="font_ownglyph_parkdahyun">Ownglyph Parkdahyun</string>
+    <string name="font_leeseoyun">Leeseoyun</string>
+    <string name="notification_setting">Notification Setting</string>
+    <string name="notification">Notification</string>
+    <string name="notification_time">Notification Time</string>
+    <string name="am">AM</string>
+    <string name="pm">PM</string>
+    <string name="notification_setting_time">%2$s:%3$s %1$s</string>
+    <string name="lock_setting">Lock Setting</string>
+    <string name="screen_lock">Screen lock</string>
+    <string name="biometric_authentication">Biometric authentication</string>
+    <string name="change_password">Change password</string>
+    <string name="enter_new_password">Enter a new password.</string>
+    <string name="enter_current_password">Enter your current password.</string>
+    <string name="enter_password">Enter your password.</string>
+    <string name="reenter_password">Enter your password again.</string>
+    <string name="password_incorrect">The password is incorrect.</string>
+    <string name="dark_mode_setting">DarkMode Setting</string>
+    <string name="system_default">System default</string>
+    <string name="light_mode">Light mode</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="backup_setting">Backup Setting</string>
+    <string name="language_setting">Language Setting</string>
+    <string name="app_review">App Review</string>
+    <string name="customer_service">Send a suggestion</string>
+
+    <!-- empty -->
+    <string name="empty_diaries">You haven’t written any diary entries yet.</string>
+    <string name="empty_content">Please enter content.</string>
+    <string name="empty_liked_diaries">You don’t have any favorite diary entries yet.</string>
+
+    <!-- hint -->
+    <string name="hint_write_diary">Write about your day.</string>
+
+    <!-- message -->
+    <string name="message_write_diary">Diary entry added!</string>
+    <string name="message_update_diary">Diary updated!</string>
+    <string name="message_delete_diary">Diary deleted.</string>
+    <string name="message_delete_diary_title">Delete diary</string>
+    <string name="message_delete_diary_info">Deleted diaries cannot be recovered.
+        \nAre you sure you want to delete this diary?</string>
+</resources>

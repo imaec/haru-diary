@@ -49,6 +49,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 add("implementation", project(":feature:locksetting"))
                 add("implementation", project(":feature:password"))
                 add("implementation", project(":feature:darkmodesetting"))
+                add("implementation", project(":feature:languagesetting"))
 
                 add("implementation", libs.findLibrary("material").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())

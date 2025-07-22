@@ -34,6 +34,7 @@ import com.imaec.domain.model.setting.FontType
 import com.imaec.feature.darkmodesetting.DarkModeSettingScreen
 import com.imaec.feature.diarylist.DiaryListScreen
 import com.imaec.feature.fontsetting.FontSettingScreen
+import com.imaec.feature.languagesetting.LanguageSettingScreen
 import com.imaec.feature.likeddiarylist.LikedDiaryListScreen
 import com.imaec.feature.locksetting.LockSettingScreen
 import com.imaec.feature.main.MainScreen
@@ -98,6 +99,9 @@ fun AppNavGraph(viewModel: AppViewModel = hiltViewModel()) {
             }
             composable<AppRoute.DarkModeSetting> {
                 DarkModeSettingScreen()
+            }
+            composable<AppRoute.LanguageSetting> {
+                LanguageSettingScreen()
             }
         }
         Snackbar()
